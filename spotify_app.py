@@ -1,23 +1,51 @@
-import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
 from flask import Flask, render_template
 from dotenv import load_dotenv, find_dotenv
 import os
 import random
+import requests
+import base64
 
 app = Flask(__name__)
 
 load_dotenv(find_dotenv())
 
-spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id=os.getenv('sptfy_id'),client_secret=os.getenv('sptfy_sectret')))
+tocken_url = "https://accounts.spotify.com/api/token"
 
-artist = ['spotify:artist:4YRxDV8wJFPHPTeXepOstw', 
-          'spotify:artist:4Ai0pGz6GhQavjzaRhPTvz', 
-          'spotify:artist:1dVygo6tRFXC8CSWURQJq2']
+creds = f"{os.getenv('sptfy_id')}:{os.getenv('sptfy_sectret')}"
+
+client_creds = base64.b64encode(creds.encode())
+
+method = "POST"
+
+tocken_data = {
+    "grant_type": "client_credentials"
+}
+
+tocken_header = {
+    "Authorization": f"Basic {client_creds.decode()}"    
+}
+
+r = requests.post(tocken_url, data=tocken_data, headers=tocken_header)
+tocken_responce = r.json()
+
+access_token = tocken_responce['access_token']
+
+artist = ['4YRxDV8wJFPHPTeXepOstw', 
+          '4Ai0pGz6GhQavjzaRhPTvz', 
+          '1dVygo6tRFXC8CSWURQJq2']
 
 artist_uri = random.choice(artist)
 
-results = spotify.artist_top_tracks(artist_uri)
+url = f"https://api.spotify.com/v1/artists/{artist_uri}/top-tracks" + "?" + "market=US"
+
+method = "POST"
+
+request_header = {
+    "Authorization": f"Bearer {access_token}"  
+}
+
+response = requests.get(url, headers=request_header)
+results = response.json();
 
 song_info = []
 
