@@ -1,22 +1,21 @@
 body{
-  font-family: Arial;
+  margin:0px;
 }
 
 h{
     font-size: 36px;
 }
 
-.background-image {
-  position: fixed;
-  display: block;
-  background-image: url('https://wonderfulengineering.com/wp-content/uploads/2014/09/yellow-wallpaper-9.jpg');
-  width: 12000px;
-  height: 8000px;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(15px);
+#bg {
+    height: 100%;
+    width: 100%;
+    background-image: url(https://cdn.wallpapersafari.com/57/60/xQ0mhT.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    position: fixed;
+    overflow: auto;
 }
 
 .wrap {
@@ -24,25 +23,26 @@ h{
     grid-template-columns: repeat(3, 1fr);
     gap: 47px;
     margin: auto;
-    width: 85%;
-    border: 3px black;
+    /* width: 85%; */
     padding: 125px;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 
-                0 6.7px 5.3px rgb(0 0 0 / 5%), 
-                0 12.5px 10px rgb(0 0 0 / 6%), 
-                0 22.3px 17.9px rgb(0 0 0 / 7%), 
-                0 41.8px 33.4px rgb(0 0 0 / 9%), 
-                0 100px 80px rgb(0 0 0 / 12%);
     position: relative;
-    margin-left: 20px;
-    margin-right: 20px;
-    
     overflow: auto;
 }
 
 .box{
   background: #c00;
 	border-radius: 25px;
+}
+
+.tabf {
+  font-family: Calibri;
+    font-size: 20px;
+    color: white;
+    display: inline;
+    padding: 40px;
+    border-radius: 36px;
+    background-color: rgb(18 20 22);
+    box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%), 0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%), 0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+    width: 400px;
+    height: 670px;
 }
