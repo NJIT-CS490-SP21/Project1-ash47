@@ -6,30 +6,29 @@
 	</head> 
 	<body>
 		<div id="bg"></div>
-			<center>
-				<div class="wrap">
-					{%for i in range(0, len)%}
-						<div class="tabf">
-							<img style="border-radius: 25px" src={{song_info[i][3]}} width="400" height="400">
-							<br><br>
-							<h>{{song_info[i][1]}}</h>
-							<br><br>
-							<audio controls><source src={{song_info[i][2]}} type="audio/ogg"></audio>
-							<br><br>
-							{%for e in range(0, len2)%}
-								{%if e == 0%}
-									<b>
-									By:
-									{{ song_info[i][e]|join(', ') }}
-									</b>
-								{%endif%}
-							{%endfor%}
-						</div>
-					{%endfor%}
-					
-				</div>
-				
+		<center>
+			<br><br><br>
+			<h style="font-size: 75px">Top 10 tracks of {{artist_name}}</h>
+			<div class="wrap">
+				{%for i in range(0, len)%}
+					<div class="tabf">
+						<img style="border-radius: 25px" src={{song_info[i][3]}} width="400" height="400">
+						<br><br>
+						<h>{{song_info[i][1]}}</h>
+						<br><br>
+						<audio controls><source src={{song_info[i][2]}} type="audio/ogg"></audio>
+						<br><br>
+						{%for e in range(0, len2)%}
+							{%if e == 0%}
+								<b>
+								By:
+								{{ song_info[i][e]|join(', ') }}
+								</b>
+							{%endif%}
+						{%endfor%}
+					</div>
+				{%endfor%}
+			</div>
 			</center>
-	
 	</body> 
 </html> 
