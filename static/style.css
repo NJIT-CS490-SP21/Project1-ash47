@@ -23,7 +23,6 @@ h{
     grid-template-columns: repeat(3, 1fr);
     gap: 47px;
     margin: auto;
-    /* width: 85%; */
     padding: 125px;
     position: relative;
     overflow: auto;
