@@ -9,6 +9,34 @@ h{
     color:white;
 }
 
+input[type=text], select {
+  width: 65%;
+  height: 55px;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 2px solid rgb(17, 50, 102);
+  border-top-left-radius: 50em;
+  border-bottom-left-radius: 50em;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 15%;
+  height: 55px;
+  background-color: rgb(20 20 55);
+  color: white;
+  padding: 14px 20px;
+  margin-left: -5px;
+  border: none;
+  border-top-right-radius: 50em;
+  border-bottom-right-radius: 50em;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color:  rgb(20 20 100);
+}
+
 #bg {
     height: 100%;
     width: 100%;
@@ -65,6 +93,6 @@ h{
     display: none;
 }
 
-.sbox{
+.ibox{
   position: relative;
 }

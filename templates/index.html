@@ -9,17 +9,18 @@
 		<center>
 			<br><br>
 			
-			<div class="sbox">
-				<form action="{{ url_for("run")}}" method="post"> 
-					<label for="firstname">Artist Name:</label> 
-					<input type="text" id="artistname" name="a_name" placeholder="artistname"> 
-				<button type="submit">Submit</button> 
+			<div class="ibox">
+				<form action="{{ url_for("run")}}" method="post" autocomplete="off"> 
+					<input type="text" id="artistname" name="a_name" placeholder="Search Artist ..."> 
+				<input type="submit" value="Submit">
+				</form>
 			</div>
 			
-			<br><br><br>
+			<br>
 			{%if err_msg%}
-				<h>No results found</h><br>
+				<h style="font-size: 20px; color: red">No results found !!!</h>
 			{%endif%}
+			<br><br><br>
 			<h style="font-size: 75px">Top 10 tracks of {{artist_name}}</h>
 			<div class="wrap">
 				{%for i in range(0, len)%}
