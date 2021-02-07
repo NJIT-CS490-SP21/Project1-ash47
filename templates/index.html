@@ -7,23 +7,34 @@
 	<body>
 		<div id="bg"></div>
 		<center>
+			<br><br>
+			
+			<div class="sbox">
+				<form action="{{ url_for("run")}}" method="post"> 
+					<label for="firstname">Artist Name:</label> 
+					<input type="text" id="artistname" name="a_name" placeholder="artistname"> 
+				<button type="submit">Submit</button> 
+			</div>
+			
 			<br><br><br>
+			{%if err_msg%}
+				<h>No results found</h><br>
+			{%endif%}
 			<h style="font-size: 75px">Top 10 tracks of {{artist_name}}</h>
 			<div class="wrap">
 				{%for i in range(0, len)%}
 					<div class="tabf">
 						<img style="border-radius: 25px" src={{song_info[i][3]}} width="400" height="400">
 						<br><br>
-						<h>{{song_info[i][1]}}</h>
-						<br><br>
+						<div class="fontA"><h>{{song_info[i][1]}}</h></div>
 						<audio controls><source src={{song_info[i][2]}} type="audio/ogg"></audio>
 						<br><br>
 						{%for e in range(0, len2)%}
 							{%if e == 0%}
-								<b>
+								<div class="fontb">
 								By:
 								{{ song_info[i][e]|join(', ') }}
-								</b>
+								</div>
 							{%endif%}
 						{%endfor%}
 					</div>

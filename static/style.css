@@ -24,11 +24,12 @@ h{
 .wrap {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 47px;
+    gap: 150px;
     margin: auto;
     padding: 125px;
     position: relative;
     overflow: auto;
+    width: fit-content;
 }
 
 .tabf {
@@ -41,5 +42,29 @@ h{
     background-color: rgb(18 20 30);
     box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 13%), 0 6.7px 5.3px rgb(0 0 0 / 15%), 0 12.5px 10px rgb(0 0 0 / 16%), 0 22.3px 17.9px rgb(0 0 0 / 17%), 0 41.8px 33.4px rgb(0 0 0 / 19%), 0 100px 80px rgb(0 0 0 / 22%);
     width: 400px;
-    height: 670px;
+    height: 675px;
+}
+
+.fontb{
+  position: inherit;
+  overflow: auto;
+  height: 75px;
+}
+
+.fontb::-webkit-scrollbar {
+    display: none;
+}
+.fontA{
+  position: inherit;
+  overflow: auto;
+  height: 90px;
+  margin: 3px;
+}
+
+.fontA::-webkit-scrollbar {
+    display: none;
+}
+
+.sbox{
+  position: relative;
 }
