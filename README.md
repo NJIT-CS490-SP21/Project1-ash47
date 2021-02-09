@@ -135,13 +135,11 @@ export sptfy_sectret = "your client secret"
   <summary><b>Token API</b></summary>
   <br>
   
-  One of the first bug I encountered was with Token API where I was not getting a valid repose.
+  **Bug:** Getting error message when calling Token API
 
-  This happened because, Token API requires base-64 encoded string in header for client credentials. 
+  **Reason:** Token API requires base-64 encoded string in header for client credentials. I was just using ```.encode()```, which means I was encoding my sting with in bytes.
 
-  But I was just using ```.encode()```, which means I was encoding my sting with in bytes. 
-
-  To fix the issue I used base64 python library. 
+  **My fix:** use Base64 python library
 
   Before:
   ```python
@@ -164,9 +162,19 @@ export sptfy_sectret = "your client secret"
   <summary><b>Search API</b></summary>
   <br>
 
-  Another issue I encountered was with search API. Every time I make a request, I would only get error response.
+  **Bug:** Getting error message when calling Search API
 
-  This was happening because query parameter for the api was embaded in url ``` https://api.spotify.com/v1/search?q=tania%20bowra&type=artist" -H "Accept: application/json"``` instead of being sperated by -H
+  **Reason:** query parameter for the api was embaded in url instead of being sperated by -H. 
+
+  *Expected API url looks like:*
+
+  ```https://api.spotify.com/v1/search?q=tania%20bowra&type=artist" -H "Accept: application/json"```
+
+  *Instead my url looked something like:*
+
+  ```https://api.spotify.com/v1/search" -H "Data : tania bowra & type: artist" -H "Accept: application/json"```
+
+  **My fix:** I used ```urllib.parse.urlencode()``` to convert query_param into query string for URL.
 
   So when I tried doing this:
   ```python
@@ -200,15 +208,13 @@ export sptfy_sectret = "your client secret"
   <summary><b>Error page</b></summary>
   <br>
 
-  Another problem I encountered was when I was implementing the search bar.
+  **Bug:** Another problem I encountered was when I was implementing the search bar. Every time a bad input was made (e.g. Incorrect artist name or empty string name), the page will generate an error message.
 
-  Every time a bad input was made (e.g. Incorrect artist name or empty string name), the page will generate an error message.
+  **Reason:** Search API will response with an error code instead of a JSON variable, when it gets bad input. So when the function tries to use .json() on the response, it     will cause an error. 
+  
+  **My Fix:**
 
-  This was happening because any time a bad input is passed through the search API, It will respond with some error code instead of a JSON variable. So when the function tries to use .json() on the response, it will cause an error. 
-
-  So to fix it, I did this:
-
-  1. used try and except to catch an error. (If the response is not an error, then the artist id is returned. Else, error code is returned)
+  1. used try and except to catch an error. (If the response is not an error code, then the artist id is returned. Else, error code is returned)
 
 
   ```python
@@ -219,6 +225,7 @@ export sptfy_sectret = "your client secret"
       results = response.status_code
       return results
   ```
+
 
   2. If an error code is passed, I returned an error message through the template, and the artist id is picked from the hardcoded list
 
@@ -234,6 +241,7 @@ export sptfy_sectret = "your client secret"
           artist_name = spotify_api.get_artist(artist_id)     # gets artist's name
       )
   ```
+
 
   3. In HTML file, if an error message is passed, then display the error message
 
