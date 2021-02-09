@@ -5,13 +5,13 @@ Project 1 creates Music discovery app that uses Spotify API to dynamically fetch
 <details>
   <summary><b>Platform</b></summary>
   <br>
-  This project is primarily made on amazons’ AWS cloud9 service. Cloud9 is a cloud-based IDE that lets us write, run, and debug out code just with a browser. And because it is a cloud-based service it makes it easy for us share your work.
+  This project is primarily made on amazons’ AWS cloud9 service. Cloud9 is a cloud-based IDE that lets us write, run, and debug out code just with a browser. And because it is a cloud-based service it makes it easy for us share our work.
 </details>
 
 <details>
   <summary><b>Frame work</b></summary>
   <br>
-  We are going to be using Flask framework for this project. It is a web framework, that provide us whit tools, libraries and technologies that allow us to build and setup a web application. 
+  For Project 1 we are using Flask framework. Flask is a web framework, that provide us with tools, libraries and technologies that allow us to build and setup a web application. 
 
 </details>
 
@@ -39,7 +39,7 @@ Project 1 creates Music discovery app that uses Spotify API to dynamically fetch
   import requests
   ```
 
-  Requests allows us to send HTTP requests easily.
+  Requests allows us to easily send HTTP requests.
 
   Example:
   ```python
@@ -109,7 +109,7 @@ $ python -m pip install requests
 
 **3. Install dotenv**
 
-*To install dotenv run following command in terminal:
+*To install dotenv run following command in terminal:*
 ```bash
 pip install python-dotenv
 ```
@@ -125,7 +125,7 @@ export sptfy_sectret = "your client secret"
 ## Run Application
 
 1. Open up terminal and run command ```python spotify_app.py```
-2. Click on "Preview button" >> "Preview running application"
+2. Click on "Preview" >> "Preview running application"
 
 ## Bugs and Future improvments
 
