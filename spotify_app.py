@@ -14,10 +14,6 @@ artist = ['4YRxDV8wJFPHPTeXepOstw',
           '4IKVDbCSBTxBeAsMKjAuTs', 
           '1mYsTxnqsietFxj1OgoGbG']
           
-# made a spotify_api object and passed client id and secreat
-# authorization token is generated automatically
-
-spotify_api = spotify_api.SpotifyApi(os.getenv('sptfy_id'), os.getenv('sptfy_sectret'))
 
 @app.route('/', methods =["GET", "POST"])
 
@@ -34,7 +30,7 @@ def run():
         artist_id = random.choice(artist)                       # randomly choose an artist
         
     # This if statement handels error case
-    # If an error code is returned, then passes error msg to html form and use random artist to get top tracks
+    # If an error code is returned, an error msg is passed to html form and use random artist to get top tracks
     # else uses user picked artist to get top tracks
         
     if(isinstance(artist_id, int) or artist_id == ''):
