@@ -136,5 +136,23 @@ def get_lyrics(song_title, token):
         page_url = result["response"]["hits"][0]["result"]["url"]
         return page_url
     except:
-        pass
+        for i in range(len(song_title)):
+            title = song_title
+            if song_title[i] == '[' or song_title[i] == '(' or song_title[i] == '-':
+                title = song_title[:i]
+                break
+            
+        query_param = urlencode({
+            "q" : title
+        })
+        url_lookup = f"{url_ext}?{query_param}"
+        response = requests.get(url_lookup, headers=request_header)
+        result = response.json()
+        
+        try:
+            page_url = result["response"]["hits"][0]["result"]["url"]
+            return page_url
+            
+        except:
+            pass
     
