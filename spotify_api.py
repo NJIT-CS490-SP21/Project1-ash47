@@ -58,6 +58,7 @@ def get_song_info(artist_id):
         song_info[count].append(track['name'])
         song_info[count].append(track['preview_url'])
         song_info[count].append(track['album']['images'][0]['url'])
+        song_info[count].append(get_lyrics(song_info[count][1], os.getenv('genius_token')))
         count += 1
     
     return song_info
@@ -112,3 +113,28 @@ def get_artist_id(name):
     except:
         results = response.status_code
         return results
+        
+def get_lyrics(song_title, token):
+    base_url = "http://api.genius.com"
+    request_header = {
+              "Authorization": f"Bearer {token}"
+    }
+    
+    url_ext = base_url + "/search"
+
+    query_param = urlencode({
+                "q" : song_title
+            })
+            
+    url_lookup = f"{url_ext}?{query_param}"
+
+    response = requests.get(url_lookup, headers=request_header)
+    
+    result = response.json()
+    
+    try:
+        page_url = result["response"]["hits"][0]["result"]["url"]
+        return page_url
+    except:
+        pass
+    
