@@ -3,6 +3,7 @@
 <html> 
 	<head> 
 			<link rel="stylesheet" type="text/css" href="/static/style.css" media="screen"/>
+			<script type="text/javascript" src="/static/script.js"></script>
 	</head> 
 	<body>
 		<div id="bg"></div>
@@ -22,15 +23,15 @@
 				<h style="font-size: 20px; color: red">No results found !!!</h>
 			{%endif%}
 			<br><br><br>
-			<h style="font-size: 75px">Top 10 tracks of {{artist_name}}</h>
+			<h id="artist_name" style="font-size: 75px">Top 10 tracks of {{artist_name}}</h>
 			
 			<!-- Creates and populate a grid format for music info -->
 			<div class="wrap">
 				{%for i in range(0, len)%}
-					<div class="tabf">
+					<div class="tabf" id="tabf{{i}}">
 						<img style="border-radius: 25px" src={{song_info[i][3]}} width="400" height="400">
 						<br><br>
-						<div class="fontA"><h>{{song_info[i][1]}}</h></div>
+						<div class="fontA"><h id="name{{i}}">{{song_info[i][1]}}</h></div>
 						<audio controls><source src={{song_info[i][2]}} type="audio/ogg"></audio>
 						<br><br>
 						{%for e in range(0, len2)%}
@@ -43,10 +44,10 @@
 						{%endfor%}
 						<br>
 						<br>
-						<a href={{song_info[i][4]}}>link text</a>
 					</div>
 				{%endfor%}
 			</div>
+			<div class="lyrics_box" id="lyrics_box"></div>
 			</center>
 	</body> 
 </html> 

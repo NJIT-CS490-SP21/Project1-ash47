@@ -54,6 +54,17 @@ def run():
             song_info = song_info,                              # array
             artist_name = spotify_api.get_artist(artist_id)     # gets artist's name
         )
+        
+        
+@app.route('/lyrics/<song_name>/<artist_name>')
+
+def lyrics(song_name, artist_name):
+    print(song_name)
+    print(artist_name[17:])
+    artist_name = artist_name[17:]
+    return{
+        'Lyrics' : spotify_api.get_lyrics(song_name, artist_name)
+    }
 
 app.run(
     port=int(os.getenv('PORT', 8080)),

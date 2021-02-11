@@ -73,6 +73,10 @@ input[type=submit]:hover {
     height: 675px;
 }
 
+.tabf:hover {
+  transform: scale(1.05);
+}
+
 .fontb{
   position: inherit;
   overflow: auto;
@@ -94,5 +98,13 @@ input[type=submit]:hover {
 }
 
 .ibox{
+  position: relative;
+}
+
+.lyrics_box{
+  width: 500px;
+  height: 500px;
+  overflow: auto;
+  color: white;
   position: relative;
 }

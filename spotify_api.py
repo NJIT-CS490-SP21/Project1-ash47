@@ -58,7 +58,6 @@ def get_song_info(artist_id):
         song_info[count].append(track['name'])
         song_info[count].append(track['preview_url'])
         song_info[count].append(track['album']['images'][0]['url'])
-        song_info[count].append(get_lyrics(song_info[count][1], get_artist(artist_id), os.getenv('genius_token')))
         count += 1
     
     return song_info
@@ -114,8 +113,11 @@ def get_artist_id(name):
         results = response.status_code
         return results
         
-def get_lyrics(song_title, artist_name, token):
+def get_lyrics(song_title, artist_name):
     base_url = "http://api.genius.com"
+    
+    token = os.getenv('genius_token')
+    
     request_header = {
               "Authorization": f"Bearer {token}"
     }
@@ -139,7 +141,6 @@ def get_lyrics(song_title, artist_name, token):
     
     try:
         page_url = song_info
-        return page_url
     except:
         for i in range(len(song_title)):
             title = song_title
@@ -163,5 +164,17 @@ def get_lyrics(song_title, artist_name, token):
             song_info = result["response"]["hits"][0]
         
         page_url = song_info["result"]["url"]
-        return page_url
+        
+    page = requests.get(page_url)
+
+    html = BeautifulSoup(page.text, "html.parser")
+    
+    #remove script tags that they put in the middle of the lyrics
+    for h in html('script'):
+        h.extract() 
+    #at least Genius is nice and has a tag called 'lyrics'!
+    lyrics = html.find("div", class_="lyrics").get_text()
+    lyrics.replace('\n', ' ')
+    
+    return lyrics
     
