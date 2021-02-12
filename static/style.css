@@ -103,25 +103,105 @@ input[type=submit]:hover {
 }
 
 .lyrics_box{
-  width: 500px;
-  height: 500px;
-  overflow: auto;
+  height: 810px;
+  width: 1340px;
   color: white;
   position: fixed;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   background-color: rgb(18 20 30);
-  padding: 10px;
+  padding: 30px;
   display: none;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+  font-family: Calibri;
+  border-radius: 45px;
+  column-gap: 35px;
 }
+
+.box1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.box2 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-row-end: 5;
+}
+
+.box3 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 8;
+  overflow: auto;
+  border-top: solid;
+  border-bottom: solid;
+  border-color: rgba(255, 255, 255, 0.5);
+  font-size: 21px;
+  padding: 15px;
+}
+
+/* Track */
+.box3::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.box3::-webkit-scrollbar-corner {background-color: transparent;}
+
+.box4 {
+  grid-column-start: 1;
+  grid-row-start: 7;
+  grid-row-end: 8;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.box5 {
+  grid-row-start: 8;
+  grid-column-start: 2;
+  padding: 30px;
+}
+
 
 .close {
   cursor: pointer;
   position: absolute;
   top: 5%;
   right: 1%;
-  padding: 12px 16px;
+  padding: 0px 15px;
   transform: translate(0%, -50%);
+  font-size: 65px;
 }
 
-.close:hover {background: #bbb;}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+    /* border-radius: 10px; */
+    background-color: black;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(129, 133, 138); 
+}
+
+::-webkit-scrollbar-corner {background-color: black;}
