@@ -15,13 +15,22 @@ artist = ['4YRxDV8wJFPHPTeXepOstw',
           '1mYsTxnqsietFxj1OgoGbG']
           
 
-@app.route('/', methods =["GET", "POST"])
+@app.route('/')
 
 def run():
-    
-    # if a post request is made we will use user input data
-    # else we will use harcoded randomized data
-    
+    artist_id = random.choice(artist)
+    song_info = spotify_api.get_song_info(artist_id)
+    return render_template(
+        "index.html", 
+        len = len(song_info), 
+        len2 = len(song_info[0]),
+        song_info = song_info,
+        artist_name = spotify_api.get_artist(artist_id)
+    )
+        
+@app.route('/artist', methods =["GET", "POST"])
+
+def artist_search():
     if request.method == "POST": 
        name = request.form.get("a_name")                        # get's artist name form html form
        artist_id = spotify_api.get_artist_id(name)              # pass in artist name and gets artist id
