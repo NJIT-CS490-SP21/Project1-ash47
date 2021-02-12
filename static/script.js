@@ -2,14 +2,16 @@
 function sendReq(song_name, artist_name)
 {
     const url = '/lyrics/' + song_name + '/' + artist_name; // This should remind you of APIs in Python!
-    alert(url);
     window.fetch(url).then(response => response.json()) // So should JSON conversion!
         .then(data => { // .then will only run the function *once* the data is fetched from the internet
             console.log(data); // See what this logs!
             
             let lyrics_box = document.getElementById("lyrics_box");
+            let text = document.getElementById("text");
             
-            lyrics_box.innerHTML = data['Lyrics'];
+            text.innerHTML = data['Lyrics'];
+            
+            lyrics_box.style.display = 'grid';
         });
         
 }
@@ -98,4 +100,11 @@ window.onload = () => {
         sendReq(song_name, artist_name);
         
     });
+    
+    var closebtns = document.getElementById("close");
+
+      closebtns.addEventListener("click", function() {
+        this.parentElement.style.display = 'none';
+    });
+    
 };
