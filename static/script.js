@@ -27,11 +27,22 @@ function sendReq(song_name, artist_name, song_image, song_audio, artist_list)
             songAudio.type = 'audio/ogg';
             audioControl.load();
             
+            hideLoader();
             lyrics_box.style.display = 'grid';
         });
         
 }
 
+function showLoader()
+{
+    var loader = document.getElementById("loader");
+    loader.style.display = "block";
+}
+function hideLoader()
+{
+    var loader = document.getElementById("loader");
+    loader.style.display = "none";
+}
 
 window.onload = () => { 
     
@@ -44,6 +55,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio0").src;
         var artist_list = document.getElementById("name_list0").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });
@@ -57,6 +69,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio1").src;
         var artist_list = document.getElementById("name_list1").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });
@@ -69,6 +82,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio2").src;
         var artist_list = document.getElementById("name_list2").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });
@@ -81,6 +95,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio3").src;
         var artist_list = document.getElementById("name_list3").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });
@@ -93,6 +108,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio4").src;
         var artist_list = document.getElementById("name_list4").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });
@@ -105,6 +121,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio5").src;
         var artist_list = document.getElementById("name_list5").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });
@@ -117,6 +134,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio6").src;
         var artist_list = document.getElementById("name_list6").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });
@@ -129,6 +147,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio7").src;
         var artist_list = document.getElementById("name_list7").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });
@@ -141,6 +160,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio8").src;
         var artist_list = document.getElementById("name_list8").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });
@@ -153,6 +173,7 @@ window.onload = () => {
         var song_audio = document.getElementById("audio9").src;
         var artist_list = document.getElementById("name_list9").innerHTML;
         
+        showLoader();
         sendReq(song_name, artist_name, song_image, song_audio, artist_list);
         
     });

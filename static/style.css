@@ -102,6 +102,15 @@ input[type=submit]:hover {
   position: relative;
 }
 
+#loader{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+
 .lyrics_box{
   height: 810px;
   width: 1340px;
