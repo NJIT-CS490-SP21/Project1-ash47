@@ -72,6 +72,7 @@ input[type=submit]:hover {
     width: 400px;
     height: 675px;
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
 .tabf:hover {
@@ -120,6 +121,7 @@ input[type=submit]:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgb(18 20 30);
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 13%), 0 6.7px 5.3px rgb(0 0 0 / 15%), 0 12.5px 10px rgb(0 0 0 / 16%), 0 22.3px 17.9px rgb(0 0 0 / 17%), 0 41.8px 33.4px rgb(0 0 0 / 19%), 0 100px 80px rgb(0 0 0 / 22%);
   padding: 30px;
   display: none;
   grid-template-columns: repeat(3, 1fr);
@@ -127,6 +129,17 @@ input[type=submit]:hover {
   font-family: Calibri;
   border-radius: 45px;
   column-gap: 35px;
+  animation: popup 0.7s;
+}
+
+@keyframes popup {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .box1 {

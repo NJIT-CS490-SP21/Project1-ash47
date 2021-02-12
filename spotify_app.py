@@ -59,11 +59,14 @@ def run():
 @app.route('/lyrics/<song_name>/<artist_name>')
 
 def lyrics(song_name, artist_name):
-    print(song_name)
-    print(artist_name[17:])
     artist_name = artist_name[17:]
+    try:
+        lyrics = spotify_api.get_lyrics(song_name, artist_name)
+    except:
+        lyrics = "Opps no lyrics found.."
+    
     return{
-        'Lyrics' : spotify_api.get_lyrics(song_name, artist_name)
+        'Lyrics' : lyrics
     }
 
 app.run(

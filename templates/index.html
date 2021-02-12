@@ -9,43 +9,45 @@
 		<div id="bg"></div>
 		<center>
 			<br><br>
-			<!-- creates an input box and submit button for user input -->
-			<div class="ibox">
-				<form action="{{ url_for("run")}}" method="post" autocomplete="off"> 
-					<input type="text" id="artistname" name="a_name" placeholder="Search Artist ..."> 
-				<input type="submit" value="Submit">
-				</form>
-			</div>
-			
-			<!-- Display title, and in case of error display an error message -->
-			<br>
-			{%if err_msg%}
-				<h style="font-size: 20px; color: red">No results found !!!</h>
-			{%endif%}
-			<br><br><br>
-			<h id="artist_name" style="font-size: 75px">Top 10 tracks of {{artist_name}}</h>
-			
-			<!-- Creates and populate a grid format for music info -->
-			<div class="wrap">
-				{%for i in range(0, len)%}
-					<div class="tabf" id="tabf{{i}}">
-						<img  id="image{{i}}" style="border-radius: 25px" src={{song_info[i][3]}} width="400" height="400">
-						<br><br>
-						<div class="fontA"><h id="name{{i}}">{{song_info[i][1]}}</h></div>
-						<audio controls><source id="audio{{i}}" src={{song_info[i][2]}} type="audio/ogg"></audio>
-						<br><br>
-						{%for e in range(0, len2)%}
-							{%if e == 0%}
-								<div class="fontb" id="name_list{{i}}">
-								By:
-								{{ song_info[i][e]|join(', ') }}
-								</div>
-							{%endif%}
-						{%endfor%}
-						<br>
-						<br>
-					</div>
-				{%endfor%}
+			<div id="lyrics_bg">
+				<!-- creates an input box and submit button for user input -->
+				<div class="ibox">
+					<form action="{{ url_for("run")}}" method="post" autocomplete="off"> 
+						<input type="text" id="artistname" name="a_name" placeholder="Search Artist ..."> 
+					<input type="submit" value="Submit">
+					</form>
+				</div>
+				
+				<!-- Display title, and in case of error display an error message -->
+				<br>
+				{%if err_msg%}
+					<h style="font-size: 20px; color: red">No results found !!!</h>
+				{%endif%}
+				<br><br><br>
+				<h id="artist_name" style="font-size: 75px">Top 10 tracks of {{artist_name}}</h>
+				
+				<!-- Creates and populate a grid format for music info -->
+				<div class="wrap">
+					{%for i in range(0, len)%}
+						<div class="tabf" id="tabf{{i}}">
+							<img  id="image{{i}}" style="border-radius: 25px" src={{song_info[i][3]}} width="400" height="400">
+							<br><br>
+							<div class="fontA"><h id="name{{i}}">{{song_info[i][1]}}</h></div>
+							<audio controls><source id="audio{{i}}" src={{song_info[i][2]}} type="audio/ogg"></audio>
+							<br><br>
+							{%for e in range(0, len2)%}
+								{%if e == 0%}
+									<div class="fontb" id="name_list{{i}}">
+									By:
+									{{ song_info[i][e]|join(', ') }}
+									</div>
+								{%endif%}
+							{%endfor%}
+							<br>
+							<br>
+						</div>
+					{%endfor%}
+				</div>
 			</div>
 			<div class="lyrics_box" id="lyrics_box">
 				<span class="close" id="close">&times;</span>
@@ -64,6 +66,7 @@
 			<div id="loader">
 				<img style="border-radius: 25px" src="https://cutewallpaper.org/21/loading-gif-transparent-background/Top-30-Barik-GIFs-Find-the-best-GIF-on-Gfycat.gif" width="400" height="400">
 			</div>
+			
 			</center>
 	</body> 
 </html> 
