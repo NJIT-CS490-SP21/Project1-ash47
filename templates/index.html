@@ -29,14 +29,14 @@
 			<div class="wrap">
 				{%for i in range(0, len)%}
 					<div class="tabf" id="tabf{{i}}">
-						<img style="border-radius: 25px" src={{song_info[i][3]}} width="400" height="400">
+						<img  id="image{{i}}" style="border-radius: 25px" src={{song_info[i][3]}} width="400" height="400">
 						<br><br>
 						<div class="fontA"><h id="name{{i}}">{{song_info[i][1]}}</h></div>
-						<audio controls><source src={{song_info[i][2]}} type="audio/ogg"></audio>
+						<audio controls><source id="audio{{i}}" src={{song_info[i][2]}} type="audio/ogg"></audio>
 						<br><br>
 						{%for e in range(0, len2)%}
 							{%if e == 0%}
-								<div class="fontb">
+								<div class="fontb" id="name_list{{i}}">
 								By:
 								{{ song_info[i][e]|join(', ') }}
 								</div>
@@ -50,7 +50,16 @@
 			<div class="lyrics_box" id="lyrics_box">
 				<span class="close" id="close">&times;</span>
 				<br>
-				<div id="text"></div>
+				<pre id="text" style="text-align:left"></pre>
+				<br>
+				<img id="image_box" style="border-radius: 25px" src="" width="400" height="400">
+				<br>
+				<h id="song_box"></h>
+				<br>
+				<div id="artist_box"></div>
+				<br>
+				<audio controls id="control"><source id="audio_box" src="" type="audio/ogg"></audio>
+				<br>
 			</div>
 			</center>
 	</body> 
