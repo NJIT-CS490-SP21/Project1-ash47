@@ -183,6 +183,9 @@ input[type=submit]:hover {
   grid-row-end: 8;
   font-weight: bold;
   font-size: 20px;
+  height: 200px;
+  line-height: 200px;
+  overflow: hide;
 }
 
 #artist_box{
@@ -193,10 +196,14 @@ input[type=submit]:hover {
 
 .box5 {
   grid-row-start: 8;
-  grid-column-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
   padding: 30px;
 }
 
+#control{
+  width: 40%;
+}
 
 .close {
   cursor: pointer;

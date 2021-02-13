@@ -9,6 +9,16 @@ function sendReq(song_name, artist_name, song_image, song_audio, artist_list)
             let lyrics_box = document.getElementById("lyrics_box");
             
             let text = document.getElementById("text");
+            if(data['Lyrics'] === "Opps no lyrics found..!!")
+            {
+                text.style.color = 'red';
+                text.style.textAlign = 'center';
+            }
+            else
+            {
+                text.style.color = 'white';
+                text.style.textAlign = 'left';
+            }
             text.innerHTML = data['Lyrics'];
             
             let songImage = document.getElementById("image_box");
@@ -27,10 +37,11 @@ function sendReq(song_name, artist_name, song_image, song_audio, artist_list)
             songAudio.type = 'audio/ogg';
             audioControl.load();
             
+            hideLoader();
+            
             let background = document.getElementById("lyrics_bg");
             background.style.filter = "blur(5px)";
             
-            hideLoader();
             lyrics_box.style.display = 'grid';
         });
         
@@ -40,11 +51,15 @@ function showLoader()
 {
     var loader = document.getElementById("loader");
     loader.style.display = "block";
+    let background = document.getElementById("lyrics_bg");
+    background.style.filter = "blur(5px)";
 }
 function hideLoader()
 {
     var loader = document.getElementById("loader");
     loader.style.display = "none";
+    let background = document.getElementById("lyrics_bg");
+    background.style.filter = 'none';
 }
 
 window.onload = () => { 
@@ -186,7 +201,7 @@ window.onload = () => {
       closebtns.addEventListener("click", function() {
         this.parentElement.style.display = 'none';
         let background = document.getElementById("lyrics_bg");
-            background.style.filter = 'none';
+        background.style.filter = 'none';
       });
     
 };

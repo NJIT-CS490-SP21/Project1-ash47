@@ -72,7 +72,7 @@ def lyrics(song_name, artist_name):
     try:
         lyrics = spotify_api.get_lyrics(song_name, artist_name)
     except:
-        lyrics = "Opps no lyrics found.."
+        lyrics = "Opps no lyrics found..!!"
     
     return{
         'Lyrics' : lyrics
