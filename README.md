@@ -83,6 +83,10 @@ Project 1 creates Music discovery app that uses Spotify API to dynamically fetch
   
   + *Get Spotify Catalog information about albums, artists, playlists, tracks, shows or episodes that match a keyword string.*
   
+  ### 5. [Genius API](https://docs.genius.com/#search-h2)
+  
+  + *Get song lyrics by passing in the song name*
+  
   
 </details>
 
@@ -120,6 +124,7 @@ pip install python-dotenv
 ```
 export sptfy_id = "your client id"
 export sptfy_sectret = "your client secret"
+export genius_token = "your genius api access token"
 ```
 
 ## Run Application
@@ -256,9 +261,8 @@ export sptfy_sectret = "your client secret"
 
 ### Future plan
 
-1. Genius API will be implemented, which would allow users to see lyrics of a perticular track.
+1. Add few more styling elements to make webpage consistant across multiple browser.
 
-2. Webpage will be deployed on heroku
 
 
 
