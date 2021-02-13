@@ -40,7 +40,7 @@ input[type=submit]:hover {
 #bg {
     height: 100%;
     width: 100%;
-    background-image: url(https://cdn.wallpapersafari.com/57/60/xQ0mhT.jpg);
+    background-image: url(image/bg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -186,6 +186,8 @@ input[type=submit]:hover {
   height: 200px;
   line-height: 200px;
   overflow: hide;
+  overflow: auto;
+  margin-top: 20px
 }
 
 #artist_box{
