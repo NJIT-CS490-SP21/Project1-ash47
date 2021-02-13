@@ -7,26 +7,29 @@ import os
 
 load_dotenv(find_dotenv())
 
-tocken_url = "https://accounts.spotify.com/api/token"
-
-creds = f"{os.getenv('sptfy_id')}:{os.getenv('sptfy_sectret')}"
-
-client_creds = base64.b64encode(creds.encode())
-
-method = "POST"
-
-tocken_data = {
-    "grant_type": "client_credentials"
-}
-
-tocken_header = {
-    "Authorization": f"Basic {client_creds.decode()}"    
-}
-
-r = requests.post(tocken_url, data=tocken_data, headers=tocken_header)
-tocken_responce = r.json()
-
-access_token = tocken_responce['access_token']
+def get_access_token():
+    tocken_url = "https://accounts.spotify.com/api/token"
+    
+    creds = f"{os.getenv('sptfy_id')}:{os.getenv('sptfy_sectret')}"
+    
+    client_creds = base64.b64encode(creds.encode())
+    
+    method = "POST"
+    
+    tocken_data = {
+        "grant_type": "client_credentials"
+    }
+    
+    tocken_header = {
+        "Authorization": f"Basic {client_creds.decode()}"    
+    }
+    
+    r = requests.post(tocken_url, data=tocken_data, headers=tocken_header)
+    tocken_responce = r.json()
+    
+    access_token = tocken_responce['access_token']
+    
+    return access_token
         
 # get_song_info takes in artist's spotify id as a parameter
 # and returns an array of of following format:
@@ -41,7 +44,7 @@ def get_song_info(artist_id):
     method = "POST"
     
     request_header = {
-        "Authorization": f"Bearer {access_token}"  
+        "Authorization": f"Bearer {get_access_token()}"  
     }
     
     response = requests.get(url, headers=request_header)
@@ -69,7 +72,7 @@ def get_artist(artist_id):
     url = f"https://api.spotify.com/v1/artists/{artist_id}"
     method = "GET"
     request_header = {
-        "Authorization": f"Bearer {access_token}"
+        "Authorization": f"Bearer {get_access_token()}"
     }
     response = requests.get(url, headers=request_header)
     results = response.json();
@@ -87,7 +90,7 @@ def get_artist_id(name):
     mehod = "GET"
     
     request_header = {
-        "Authorization": f"Bearer {access_token}"
+        "Authorization": f"Bearer {get_access_token()}"
     }
     
     # makes a url ready query paramater
