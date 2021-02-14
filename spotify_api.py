@@ -179,5 +179,5 @@ def get_lyrics(song_title, artist_name):
     lyrics = html.find("div", class_="lyrics").get_text()
     lyrics.replace('\n', ' ')
     
-    return lyrics
+    return [page_url, lyrics]
     

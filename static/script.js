@@ -13,13 +13,20 @@ function sendReq(song_name, artist_name, song_image, song_audio, artist_list)
             {
                 text.style.color = 'red';
                 text.style.textAlign = 'center';
+                
+                text.innerHTML = data['Lyrics'];
             }
             else
             {
                 text.style.color = 'white';
                 text.style.textAlign = 'left';
+                
+                var str = "Link to original lyrics page...";
+                var lyrics_url = str.link(data['Lyrics'][0]);
+                
+                text.innerHTML = data['Lyrics'][1];
+                text.innerHTML += lyrics_url;
             }
-            text.innerHTML = data['Lyrics'];
             
             let songImage = document.getElementById("image_box");
             songImage.src = song_image;
