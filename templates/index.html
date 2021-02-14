@@ -4,7 +4,6 @@
 	<head> 
 			<link rel="stylesheet" type="text/css" href="/static/style.css" media="screen"/>
 			<script type="text/javascript" src="/static/script.js"></script>
-			<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head> 
 	<body>
 		<div id="bg"></div>
@@ -31,9 +30,9 @@
 				<div class="wrap">
 					{%for i in range(0, len)%}
 						<div class="tabf" id="tabf{{i}}">
-							<img  id="image{{i}}" style="border-radius: 25px" src={{song_info[i][3]}} width="400" height="400">
-							<br><br>
-							<div class="fontA"><h id="name{{i}}">{{song_info[i][1]}}</h></div>
+							<img  id="image{{i}}" style="border-radius: 25px" src={{song_info[i][3]}} width="300" height="300">
+							<br>
+							<div class="fontA"><b id="name{{i}}">{{song_info[i][1]}}</b></div>
 							<audio controls><source id="audio{{i}}" src={{song_info[i][2]}} type="audio/ogg"></audio>
 							<br><br>
 							{%for e in range(0, len2)%}
@@ -53,11 +52,11 @@
 			<div class="lyrics_box" id="lyrics_box">
 				<span class="close" id="close">&times;</span>
 				<br>
-				<div class="box3"><pre id="text" style="text-align:left"></pre></div>
+				<div class="box3"><pre id="text" style="text-align:left font-size: 13px"></pre></div>
 				<br>
-				<div class="box2"><img id="image_box" style="border-radius: 25px" src="" width="400" height="400"></div>
+				<div class="box2"><img id="image_box" style="border-radius: 25px" src="" width="300" height="300"></div>
 				<br>
-				<div class="box1"><h id="song_box" style="font-size:50px"></h></div>
+				<div class="box1"><h id="song_box" style="font-size:35px"></h></div>
 				<br>
 				<div class="box4"><span id="artist_box"></span></div>
 				<br>

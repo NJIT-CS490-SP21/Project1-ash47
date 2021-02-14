@@ -50,29 +50,29 @@ input[type=submit]:hover {
 }
 
 .wrap {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 150px;
-    margin: auto;
-    padding: 125px;
-    position: relative;
-    overflow: auto;
-    width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 150px;
+  margin: auto;
+  padding: 125px;
+  position: relative;
+  overflow: auto;
+  width: fit-content;
 }
 
 .tabf {
   font-family: Calibri;
-    font-size: 20px;
-    color: white;
-    display: inline;
-    padding: 40px;
-    border-radius: 36px;
-    background-color: rgb(18 20 30);
-    box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 13%), 0 6.7px 5.3px rgb(0 0 0 / 15%), 0 12.5px 10px rgb(0 0 0 / 16%), 0 22.3px 17.9px rgb(0 0 0 / 17%), 0 41.8px 33.4px rgb(0 0 0 / 19%), 0 100px 80px rgb(0 0 0 / 22%);
-    width: 400px;
-    height: 675px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
+  font-size: 20px;
+  color: white;
+  display: inline;
+  padding: 25px;
+  border-radius: 36px;
+  background-color: rgb(18 20 30);
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 13%), 0 6.7px 5.3px rgb(0 0 0 / 15%), 0 12.5px 10px rgb(0 0 0 / 16%), 0 22.3px 17.9px rgb(0 0 0 / 17%), 0 41.8px 33.4px rgb(0 0 0 / 19%), 0 100px 80px rgb(0 0 0 / 22%);
+  width: 320px;
+  height: 550px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
 }
 
 .tabf:hover {
@@ -82,7 +82,8 @@ input[type=submit]:hover {
 .fontb{
   position: inherit;
   overflow: auto;
-  height: 75px;
+  height: 40px;
+  font-size: 15px;
 }
 
 .fontb::-webkit-scrollbar {
@@ -91,8 +92,9 @@ input[type=submit]:hover {
 .fontA{
   position: inherit;
   overflow: auto;
-  height: 90px;
-  margin: 3px;
+  height: 80px;
+  margin: 12px;
+  font-size: 30px;
 }
 
 .fontA::-webkit-scrollbar {
@@ -113,8 +115,8 @@ input[type=submit]:hover {
 
 
 .lyrics_box{
-  height: 810px;
-  width: 1340px;
+  height: 495px;
+  width: 905px;
   color: white;
   position: fixed;
   top: 50%;
@@ -130,6 +132,7 @@ input[type=submit]:hover {
   border-radius: 45px;
   column-gap: 35px;
   animation: popup 0.7s;
+  grid-template-rows: 60px 60px 60px 60px 65px 65px 75px 60px;
 }
 
 @keyframes popup {
@@ -152,7 +155,7 @@ input[type=submit]:hover {
 .box2 {
   grid-column-start: 1;
   grid-row-start: 2;
-  grid-row-end: 5;
+  grid-row-end: 7;
 }
 
 .box3 {
@@ -164,7 +167,7 @@ input[type=submit]:hover {
   border-top: solid;
   border-bottom: solid;
   border-color: rgba(255, 255, 255, 0.5);
-  font-size: 21px;
+  font-size: 15px;
   padding: 15px;
 }
 
@@ -179,15 +182,12 @@ input[type=submit]:hover {
 
 .box4 {
   grid-column-start: 1;
-  grid-row-start: 6;
-  grid-row-end: 8;
+  grid-row-start: 7;
   font-weight: bold;
-  font-size: 20px;
-  height: 200px;
-  line-height: 200px;
-  overflow: hide;
-  overflow: auto;
-  margin-top: 20px
+  font-size: 15px;
+  height: 75px;
+  line-height: 75px;
+  overflow: hidden;
 }
 
 #artist_box{
@@ -200,11 +200,12 @@ input[type=submit]:hover {
   grid-row-start: 8;
   grid-column-start: 1;
   grid-column-end: 4;
-  padding: 30px;
+  padding: 15px;
 }
 
 #control{
-  width: 40%;
+  width: 45%;
+  height: 40px;
 }
 
 .close {
@@ -219,8 +220,8 @@ input[type=submit]:hover {
 
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 /* Track */
