@@ -24,7 +24,7 @@
 					<h style="font-size: 20px; color: red">No results found !!!</h>
 				{%endif%}
 				<br><br><br>
-				<h id="artist_name" style="font-size: 75px">Top 10 tracks of {{artist_name}}</h>
+				<h id="artist_name" style="font-size: 75px">Top tracks of {{artist_name}}</h>
 				
 				<!-- Creates and populate a grid format for music info -->
 				<div class="wrap">
@@ -65,6 +65,13 @@
 			</div>
 			<div id="loader">
 				<img src="{{url_for('static', filename='images/loader.gif')}}" style="border-radius: 25px" width="80" height="80"></img>
+			</div>
+			
+			<div class="err_box" id="err_box">
+				<span class="close" id="close_err">&times;</span>
+				<b id="err_msg" style="font-size:40px">
+					Please disable grammarly addon to see the lyrics.
+				</b>
 			</div>
 			
 			</center>

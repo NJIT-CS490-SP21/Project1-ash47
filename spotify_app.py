@@ -38,14 +38,9 @@ def artist_search():
     else:   
         artist_id = random.choice(artist)                       # randomly choose an artist
         
-    # This if statement handels error case
-    # If an error code is returned, an error msg is passed to html form and use random artist to get top tracks
-    # else uses user picked artist to get top tracks
-        
     if(isinstance(artist_id, int) or artist_id == ''):
         artist_id = random.choice(artist)                       # randomly choose an artist
         song_info = spotify_api.get_song_info(artist_id)        # gets artist info as an array (random aritst)
-        
         return render_template(
             "index.html",
             err_msg = True,                                     # error message
@@ -56,10 +51,16 @@ def artist_search():
         )
     else:
         song_info = spotify_api.get_song_info(artist_id)        # gets artist info as an array (user picked aritst)
+        
+        if(len(song_info) > 0):
+            artist_len = len(song_info[0])
+        else:
+            artist_len = 0
+            
         return render_template(
             "index.html", 
             len = len(song_info),                               # array length 
-            len2 = len(song_info[0]),                           # array length for artists
+            len2 = artist_len,                                  # array length for artists
             song_info = song_info,                              # array
             artist_name = spotify_api.get_artist(artist_id)     # gets artist's name
         )

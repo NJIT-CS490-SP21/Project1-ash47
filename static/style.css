@@ -81,14 +81,11 @@ input[type=submit]:hover {
 
 .fontb{
   position: inherit;
-  overflow: auto;
-  height: 40px;
+  overflow: hidden;
+  height: 35px;
   font-size: 15px;
 }
 
-.fontb::-webkit-scrollbar {
-    display: none;
-}
 .fontA{
   position: inherit;
   overflow: auto;
@@ -115,7 +112,7 @@ input[type=submit]:hover {
 
 
 .lyrics_box{
-  height: 495px;
+  height: 515px;
   width: 905px;
   color: white;
   position: fixed;
@@ -132,7 +129,24 @@ input[type=submit]:hover {
   border-radius: 45px;
   column-gap: 35px;
   animation: popup 0.7s;
-  grid-template-rows: 60px 60px 60px 60px 65px 65px 75px 60px;
+  grid-template-rows: 85px 60px 60px 60px 65px 65px 75px 60px;
+}
+
+.err_box{
+  height: 100px;
+  width: 680px;
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(18 20 30);
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 13%), 0 6.7px 5.3px rgb(0 0 0 / 15%), 0 12.5px 10px rgb(0 0 0 / 16%), 0 22.3px 17.9px rgb(0 0 0 / 17%), 0 41.8px 33.4px rgb(0 0 0 / 19%), 0 100px 80px rgb(0 0 0 / 22%);
+  padding: 215px;
+  display: none;
+  font-family: Calibri;
+  border-radius: 45px;
+  animation: popup 0.7s;
 }
 
 @keyframes popup {
