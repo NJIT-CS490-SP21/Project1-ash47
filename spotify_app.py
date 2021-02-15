@@ -69,7 +69,8 @@ def artist_search():
 @app.route('/lyrics/<song_name>/<artist_name>')
 
 def lyrics(song_name, artist_name):
-    artist_name = artist_name[17:]
+    artist_name = artist_name[14:]
+    print(artist_name)
     try:
         lyrics = spotify_api.get_lyrics(song_name, artist_name)
     except:

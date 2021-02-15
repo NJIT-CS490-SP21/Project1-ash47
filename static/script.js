@@ -1,10 +1,8 @@
-//alert('Hello world!');
 function sendReq(song_name, artist_name, song_image, song_audio, artist_list)
 {
     const url = '/lyrics/' + song_name + '/' + artist_name;
     window.fetch(url).then(response => response.json()) 
         .then(data => { 
-            console.log(data);
             
             let lyrics_box = document.getElementById("lyrics_box");
             
