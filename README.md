@@ -132,6 +132,12 @@ export genius_token = "your genius api access token"
 1. Open up terminal and run command ```python spotify_app.py```
 2. Click on "Preview" >> "Preview running application"
 
+## Link to website
+
+[Click here...](https://obscure-eyrie-86329.herokuapp.com/)
+
+*(Disclaimer: If you are using Grammarly extension in your browser, the app may not work properly. Please open the page in incognito tab or disable Grammarly for the website.)*
+
 ## Bugs and Future improvments
 
 ### Bugs:
