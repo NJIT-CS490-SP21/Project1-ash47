@@ -1,6 +1,8 @@
 # Project-1 Spotify lookup
 Project 1 creates Music discovery app that uses Spotify API to dynamically fetch data form Spotify libraries to show top tracks of an Artist. The user will have option to pick an artist through a search bar on page. In case an artist is not picked the page will load top tracks for one of the three pre-selected artists. 
 
+<img src="https://github.com/NJIT-CS490-SP21/Spotify-lookup/blob/main/Spotify-lookup.PNG" width=600>
+
 ## technologies, frameworks, libraries, and APIs
 <details>
   <summary><b>Platform</b></summary>
